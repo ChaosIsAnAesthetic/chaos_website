@@ -62,8 +62,8 @@ $(function () {
 // Listener pour chargement adresse mailto
 window.addEventListener("load", function () {
   if (document.getElementById("insertMail")) {
-    let name = "contact"; // Update yours informations here
-    let domain = "yourbandname.com"; // Update yours informations here
+    let name = "booking"; // Update yours informations here
+    let domain = "chaosisanaesthetic.com"; // Update yours informations here
     //let subject = "subject=Formulaire Tuco" ;
     let divMail = document.getElementById("insertMail");
     let newAhref = document.createElement("a");
@@ -100,7 +100,7 @@ $(function () {
   });
   // Phone
   $("#telephone").on("blur input", function () {
-    let regexTelephone = /[0]{1}[1-7]{1}[0-9]{8}/;
+    let regexTelephone = /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$/;
     let telEntry = String(document.getElementById("telephone").value);
     for (var i = 0; i < telEntry.length; i++) {
       telEntry = telEntry.replace(" ", "");
@@ -144,54 +144,6 @@ $(function () {
   });
 });
 
-// Contact form
-$(function () {
-  $(".contactForm").on("submit", function (e) {
-    e.preventDefault();
-    let nom = $("#nom").val();
-    let telephone = $("#telephone").val();
-    let mail = $("#mail").val();
-    let message = $("#message").val();
-    let newsletter = $('input[name="newsletter"]:checked').val();
-    let checkRobot = $("#checkRobot").val();
-    if ($("#checkRobot").val() == 7) {
-      $.post(
-        "../datas/sendFormContact.php",
-        {
-          nom: nom,
-          telephone: telephone,
-          mail: mail,
-          message: message,
-          newsletter: newsletter,
-          checkRobot: checkRobot,
-        },
-        function (data, textStatus, xhr) {
-          $("form").fadeOut(400, function () {
-            $("#retourFormulaire").css({
-              padding: "10px",
-              "margin-top": "160px",
-              "margin-bottom": "160px",
-              "margin-left": "auto",
-              "margin-right": "auto",
-              color: "white",
-              "font-size": "1rem",
-              "text-align": "center",
-            });
-            $("#retourFormulaire").html(data);
-          });
-          $("#nom").val("");
-          $("#telephone").val("");
-          $("#mail").val("");
-          $("#message").val("");
-          $("#checkRobot").val("");
-        }
-      );
-    } else {
-      alert("Incorrect anti robot check result !");
-    }
-  });
-});
-
 // Form newsletter input blur
 $(function () {
   let regexMail =
@@ -218,39 +170,39 @@ $(function () {
   });
 });
 
-// Form newsletter ajax send
-$(function () {
-  $(".newsletterForm").on("submit", function (e) {
-    e.preventDefault();
-    let mail = $("#emailNews").val();
-    let checkRobot = $("#checkRobotNews").val();
-    if ($("#checkRobotNews").val() == 7) {
-      $.post(
-        "../datas/sendFormSubscription.php",
-        { mail: mail, checkRobot: checkRobot },
-        function (data, textStatus, xhr) {
-          $(".newsletterForm").fadeOut(400, function () {
-            $("#retourNewsFormulaire").css({
-              padding: "10px",
-              "margin-top": "60px",
-              "margin-bottom": "60px",
-              "margin-left": "auto",
-              "margin-right": "auto",
-              color: "white",
-              "font-size": "1rem",
-              "text-align": "center",
-            });
-            $("#retourNewsFormulaire").html(data);
-          });
-          $("#emailNews").val("");
-          $("#checkRobotNews").val("");
-        }
-      );
-    } else {
-      alert("Incorrect anti robot check result !");
-    }
-  });
-});
+// // Form newsletter ajax send
+// $(function () {
+//   $(".newsletterForm").on("submit", function (e) {
+//     e.preventDefault();
+//     let mail = $("#emailNews").val();
+//     let checkRobot = $("#checkRobotNews").val();
+//     if ($("#checkRobotNews").val() == 7) {
+//       $.post(
+//         "../datas/sendFormSubscription.php",
+//         { mail: mail, checkRobot: checkRobot },
+//         function (data, textStatus, xhr) {
+//           $(".newsletterForm").fadeOut(400, function () {
+//             $("#retourNewsFormulaire").css({
+//               padding: "10px",
+//               "margin-top": "60px",
+//               "margin-bottom": "60px",
+//               "margin-left": "auto",
+//               "margin-right": "auto",
+//               color: "white",
+//               "font-size": "1rem",
+//               "text-align": "center",
+//             });
+//             $("#retourNewsFormulaire").html(data);
+//           });
+//           $("#emailNews").val("");
+//           $("#checkRobotNews").val("");
+//         }
+//       );
+//     } else {
+//       alert("Incorrect anti robot check result !");
+//     }
+//   });
+// });
 
 // Animations on scroll
 $(function () {
