@@ -293,21 +293,3 @@ $(function () {
     window.location.href = "#nextShow";
   });
 });
-
-// Locations
-$(function () {
-  $(".card").on("click", () => {
-    window.location.href = "https://www.instagram.com/";
-  });
-});
-// Location socials
-$(function () {
-  $(".facebook").on("click", function (event) {
-    event.preventDefault();
-    window.location.href = "https://facebook.com/";
-  });
-  $(".instagram").on("click", function (event) {
-    event.preventDefault();
-    window.location.href = "https://www.instagram.com/";
-  });
-});

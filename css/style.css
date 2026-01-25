@@ -1,5 +1,6 @@
 :root {
   --secondary-color: #ff5d73;
+  --secondary-rgb: 255, 93, 115;
   --background-color: #643a71;
   --highlight-color: #8b5fbf;
   --orchid-color: #d183c9;
@@ -39,9 +40,15 @@ body {
   font-family: "Lato", sans-serif;
   font-display: swap;
   font-size: 1rem;
-  color: #fefefe;
+  color: white;
   font-size: 16px;
   background-color: var(--background-color);
+}
+
+.delicious-handrawn-regular {
+  font-family: "Delicious Handrawn", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .shareBtn {
@@ -361,7 +368,7 @@ p.miniPara {
   color: #fefefe;
 }
 .imgContent .card::before {
-  content: url("../img/instagram-min-white.svg");
+  content: url("../img/social/instagram-min-white.svg");
   position: absolute;
   display: flex;
   justify-content: center;
@@ -374,7 +381,7 @@ p.miniPara {
   max-width: 250px;
   height: 250px;
   opacity: 0;
-  background-color: rgba(244, 89, 30, 0.7);
+  background-color: rgba(var(--secondary-rgb), 0.7);
   z-index: 2;
   transition: all ease-in-out 150ms;
 }
@@ -661,6 +668,7 @@ footer img {
 }
 
 #upArrow {
+  color: var(--secondary-color);
   display: none;
   position: fixed;
   bottom: 5%;
