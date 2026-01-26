@@ -1,5 +1,6 @@
 :root {
   --secondary-color: #ff5d73;
+  --secondary-rgb: 255, 93, 115;
   --background-color: #643a71;
   --highlight-color: #8b5fbf;
   --orchid-color: #d183c9;
@@ -36,12 +37,19 @@ a {
 }
 
 body {
-  font-family: "Lato", sans-serif;
+  font-family: "Short Stack", cursive;
   font-display: swap;
   font-size: 1rem;
-  color: #fefefe;
+  color: white;
   font-size: 16px;
   background-color: var(--background-color);
+  overflow-x: hidden;
+}
+
+.delicious-handrawn-regular {
+  font-family: "Delicious Handrawn", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .shareBtn {
@@ -75,7 +83,7 @@ body {
   cursor: pointer;
   z-index: 3;
   margin-right: 50px;
-  right: 24px;
+  right: 0;
 }
 .menu .line {
   position: absolute;
@@ -125,7 +133,7 @@ body {
   opacity: 0;
   z-index: -1;
   margin-right: 50px;
-  right: 24px;
+  right: 0;
 }
 .ss-menu img {
   position: absolute;
@@ -361,7 +369,7 @@ p.miniPara {
   color: #fefefe;
 }
 .imgContent .card::before {
-  content: url("../img/instagram-min-white.svg");
+  content: url("../img/social/instagram-min-white.svg");
   position: absolute;
   display: flex;
   justify-content: center;
@@ -374,7 +382,7 @@ p.miniPara {
   max-width: 250px;
   height: 250px;
   opacity: 0;
-  background-color: rgba(244, 89, 30, 0.7);
+  background-color: rgba(var(--secondary-rgb), 0.7);
   z-index: 2;
   transition: all ease-in-out 150ms;
 }
@@ -461,7 +469,13 @@ p.pink:hover {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 70vh;
+  aspect-ratio: 16/9;
+  max-width: 100vw;
+}
+
+.ss-music iframe {
+  width: 100%;
+  height: 100%;
 }
 
 footer {
@@ -643,8 +657,8 @@ footer .socialBanner {
   justify-content: center;
 }
 footer img {
-  max-width: 24px;
-  margin: 0 2px 0 2px;
+  width: 24px;
+  margin: 0 4px 0 4px;
   cursor: pointer;
 }
 
@@ -661,7 +675,8 @@ footer img {
 }
 
 #upArrow {
-  display: none;
+  color: var(--secondary-color);
+  /* display: none; */
   position: fixed;
   bottom: 5%;
   right: 5%;
@@ -756,14 +771,6 @@ button[name="backSite"] {
     width: 90%;
     font-size: 4vh;
     bottom: 20%;
-  }
-
-  .shareBtn {
-    display: none;
-  }
-
-  footer .socialBanner {
-    display: none;
   }
 
   section {

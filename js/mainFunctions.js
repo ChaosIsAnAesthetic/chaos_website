@@ -60,18 +60,18 @@ $(function () {
 
 // Script adresse Email
 // Listener pour chargement adresse mailto
-window.addEventListener("load", function () {
-  if (document.getElementById("insertMail")) {
-    let name = "booking"; // Update yours informations here
-    let domain = "chaosisanaesthetic.com"; // Update yours informations here
-    //let subject = "subject=Formulaire Tuco" ;
-    let divMail = document.getElementById("insertMail");
-    let newAhref = document.createElement("a");
-    newAhref.href = "mailto:" + name + "@" + domain;
-    newAhref.innerHTML = name + "@" + domain;
-    divMail.appendChild(newAhref);
-  }
-});
+// window.addEventListener("load", function () {
+//   if (document.getElementById("insertMail")) {
+//     let name = "booking"; // Update yours informations here
+//     let domain = "chaosisanaesthetic.com"; // Update yours informations here
+//     //let subject = "subject=Formulaire Tuco" ;
+//     let divMail = document.getElementById("insertMail");
+//     let newAhref = document.createElement("a");
+//     newAhref.href = "mailto:" + name + "@" + domain;
+//     newAhref.innerHTML = name + "@" + domain;
+//     divMail.appendChild(newAhref);
+//   }
+// });
 
 // Set copyright to current year
 window.addEventListener("load", function () {
@@ -291,23 +291,5 @@ $(function () {
 $(function () {
   $("#scrollDown").on("click", function () {
     window.location.href = "#nextShow";
-  });
-});
-
-// Locations
-$(function () {
-  $(".card").on("click", () => {
-    window.location.href = "https://www.instagram.com/";
-  });
-});
-// Location socials
-$(function () {
-  $(".facebook").on("click", function (event) {
-    event.preventDefault();
-    window.location.href = "https://facebook.com/";
-  });
-  $(".instagram").on("click", function (event) {
-    event.preventDefault();
-    window.location.href = "https://www.instagram.com/";
   });
 });
