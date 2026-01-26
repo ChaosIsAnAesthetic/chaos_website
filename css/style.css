@@ -368,8 +368,8 @@ p.miniPara {
   font-size: 1.3rem;
   color: #fefefe;
 }
-.imgContent .card::before {
-  content: url("../img/social/instagram-min-white.svg");
+
+.imgContent .card-hover {
   position: absolute;
   display: flex;
   justify-content: center;
@@ -386,10 +386,19 @@ p.miniPara {
   z-index: 2;
   transition: all ease-in-out 150ms;
 }
-.imgContent .card:hover::before {
+.imgContent .card-hover:hover {
   opacity: 1;
   transition: all ease-in-out 150ms;
 }
+.card-hover .hover-social-icon {
+  max-width: 24px;
+  height: 100%;
+}
+
+.card-hover .hover-social-icon.facebook {
+  height: 24px;
+}
+
 .imgContent img {
   position: relative;
   width: 100%;
