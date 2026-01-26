@@ -155,40 +155,6 @@ $(function () {
   });
 });
 
-// // Form newsletter ajax send
-// $(function () {
-//   $(".newsletterForm").on("submit", function (e) {
-//     e.preventDefault();
-//     let mail = $("#emailNews").val();
-//     let checkRobot = $("#checkRobotNews").val();
-//     if ($("#checkRobotNews").val() == 7) {
-//       $.post(
-//         "../datas/sendFormSubscription.php",
-//         { mail: mail, checkRobot: checkRobot },
-//         function (data, textStatus, xhr) {
-//           $(".newsletterForm").fadeOut(400, function () {
-//             $("#retourNewsFormulaire").css({
-//               padding: "10px",
-//               "margin-top": "60px",
-//               "margin-bottom": "60px",
-//               "margin-left": "auto",
-//               "margin-right": "auto",
-//               color: "white",
-//               "font-size": "1rem",
-//               "text-align": "center",
-//             });
-//             $("#retourNewsFormulaire").html(data);
-//           });
-//           $("#emailNews").val("");
-//           $("#checkRobotNews").val("");
-//         }
-//       );
-//     } else {
-//       alert("Incorrect anti robot check result !");
-//     }
-//   });
-// });
-
 // Animations on scroll
 $(function () {
   $(window).on("scroll", function () {
