@@ -1,4 +1,6 @@
-document.onload(displayShows());
+document.addEventListener("DOMContentLoaded", () => {
+  displayShows();
+});
 
 async function getShows() {
   const strapiBaseUrl = isDevelopment()
@@ -69,7 +71,7 @@ function displayShowsError() {
   const subscribeMsg = createInviteToSubscribeMsg();
 
   const nextShowEl = getElementById("nextShowPara");
-  setTextContent(textShowEl, "");
+  setTextContent(nextShowEl, "");
   addChild(nextShowEl, subscribeMsg);
 }
 
