@@ -1,4 +1,6 @@
-document.onload(displayShows());
+document.addEventListener("DOMContentLoaded", () => {
+  displayShows();
+});
 
 async function getShows() {
   const strapiBaseUrl = isDevelopment()
