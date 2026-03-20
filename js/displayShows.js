@@ -69,7 +69,7 @@ function displayShowsError() {
   const subscribeMsg = createInviteToSubscribeMsg();
 
   const nextShowEl = getElementById("nextShowPara");
-  setTextContent(textShowEl, "");
+  setTextContent(nextShowEl, "");
   addChild(nextShowEl, subscribeMsg);
 }
 
