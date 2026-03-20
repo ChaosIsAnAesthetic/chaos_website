@@ -318,12 +318,18 @@ h2#slogan {
     transform: translateY(0) translateX(-50%);
   }
 }
+
 p {
   color: #9fa0ac;
   line-height: 30px;
   margin: 50px 0 50px 0;
 }
 
+.gray {
+  color: #9fa0ac;
+  line-height: 30px;
+  margin: 50px 0 50px 0;
+}
 p.miniPara {
   color: #fefefe;
   line-height: 30px;
@@ -467,11 +473,19 @@ p.pink:hover {
 .date table td:nth-of-type(even) {
   padding-left: 7px;
 }
-.date table span {
+.date table .event-title {
   color: white;
   font-size: 16px;
   text-transform: uppercase;
   letter-spacing: 1px;
+}
+
+.link {
+  color: white
+}
+
+.link:hover {
+  text-decoration: underline;
 }
 
 .ss-nextShow,
@@ -875,6 +889,54 @@ button[name="backSite"] {
 
   .footerBaner p.bolder {
     font-size: 0.8rem;
+  }
+}
+
+/* DOT-TYPING LOADING ANIMATION */
+  .stage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 32px 0;
+    margin: 0 -5%;
+    overflow: hidden;
+    min-width: 48px;
+  }
+
+  .dot-typing {
+  position: relative;
+  left: -9999px;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: #9880ff;
+  color: #9880ff;
+  box-shadow: 9984px 0 0 0 #9880ff, 9999px 0 0 0 #9880ff, 10014px 0 0 0 #9880ff;
+  animation: dot-typing 1.5s infinite linear;
+}
+
+@keyframes dot-typing {
+  0% {
+    box-shadow: 9984px 0 0 0 #9880ff, 9999px 0 0 0 #9880ff, 10014px 0 0 0 #9880ff;
+  }
+  16.667% {
+    box-shadow: 9984px -10px 0 0 #9880ff, 9999px 0 0 0 #9880ff, 10014px 0 0 0 #9880ff;
+  }
+  33.333% {
+    box-shadow: 9984px 0 0 0 #9880ff, 9999px 0 0 0 #9880ff, 10014px 0 0 0 #9880ff;
+  }
+  50% {
+    box-shadow: 9984px 0 0 0 #9880ff, 9999px -10px 0 0 #9880ff, 10014px 0 0 0 #9880ff;
+  }
+  66.667% {
+    box-shadow: 9984px 0 0 0 #9880ff, 9999px 0 0 0 #9880ff, 10014px 0 0 0 #9880ff;
+  }
+  83.333% {
+    box-shadow: 9984px 0 0 0 #9880ff, 9999px 0 0 0 #9880ff, 10014px -10px 0 0 #9880ff;
+  }
+  100% {
+    box-shadow: 9984px 0 0 0 #9880ff, 9999px 0 0 0 #9880ff, 10014px 0 0 0 #9880ff;
   }
 }
 

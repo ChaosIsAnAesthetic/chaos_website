@@ -103,13 +103,14 @@
     </section>
 
     <a id="nextShow"></a>
-    <section class="nextShow">
-      <h2 class="animatableX delicious-handrawn-regular">Next show</h2>
-      <div class="separator animatableOpacity"></div>
-      <div class="ss-nextShow">
-        <p class="hardLight animatableY">
-          1 / 29 7:00PM | Folkin' Around @ Pub Rock - Scottsdale, AZ
-        </p>
+    <section class="nextShow" id="nextShow">
+      <h2 class="delicious-handrawn-regular">Next show</h2>
+      <div class="separator"></div>
+      <div id="nextShowContainer" class="ss-nextShow">
+        <div id="nextShowLoading" class="stage">
+          <div class="dot-typing"></div>
+        </div>
+        <p id="nextShowPara" class="hardLight"></p>
 
         <p class="pink"><a href="#date">Show all dates ➡</a></p>
       </div>
@@ -126,27 +127,19 @@
       </p>
       <p class="quote-credit">- Wicked Woman, Chaos is an Aesthetic</p>
       <p class="animatableY">
-        Chaos is an Aesthetic is an independent Phoenix area folk band. We're a
-        ragtag group of musicians making music while we make ends meet. We offer
-        a folk, almost southern gothic sound that surprises and delights
-        audiences everywhere.
+        Chaos is an Aesthetic is an independent Phoenix area alt folk band.
+        We're a ragtag group of musicians making music while we make ends meet.
+        We offer an alt folk, almost southern gothic sound that surprises and
+        delights audiences everywhere.
       </p>
       <div class="imgContent">
         <div class="member-container">
           <div class="card animatableY">
             <img
-              class="lazyload member-image"
-              src="./img/guitar-rec-blur.jpg"
-              data-src="./img/kira.jpg"
+              class="member-image"
+              src="./img/kira.jpg"
               alt="Vocalist/Guitarist/Writer Chaos is an Aesthetic"
             />
-            <noscript>
-              <img
-                class="member-image"
-                src="./img/kira.jpg"
-                alt="Vocalist/Guitarist/Writer Chaos is an Aesthetic"
-              />
-            </noscript>
             <a
               class="card-hover"
               href="https://www.instagram.com/kiradot00"
@@ -280,40 +273,24 @@
 
     <a id="date"></a>
     <section class="date">
-      <h2 class="animatableX delicious-handrawn-regular">Shows</h2>
+      <h2 class="delicious-handrawn-regular">Shows</h2>
       <div class="separator animatableOpacity"></div>
 
+      <h3>Upcoming Shows</h3>
       <!-- Table date -->
-      <table>
-        <tr class="animatableY">
-          <td>1/11/2026</td>
-          <td>
-            <span class="white"><a href="">Evoke Art Events @ Lacuna</a></span
-            ><br />Phoenix, AZ
-          </td>
-          <td>5PM</td>
-        </tr>
-        <tr class="animatableY">
-          <td>1/29/2026</td>
-          <td>
-            <span class="white"
-              ><a
-                href="https://www.pubrocklive.com/events/folkinaround"
-                target="_blank"
-                >Folkin' Around @ Pub Rock</a
-              ></span
-            ><br />Scottsdale, AZ
-          </td>
-          <td>7-10PM 21+</td>
-        </tr>
-        <tr class="animatableY">
-          <td>Stay tuned for more show dates!</td>
-          <td></td>
-          <td></td>
-        </tr>
+      <table id="upcomingShowsTable">
+        <div id="upcomingLoading" class="stage">
+          <div class="dot-typing"></div>
+        </div>
       </table>
+      <p id="subscribeMsg"></p>
+
+      <h3>Recent Shows</h3>
+      <!-- Table date -->
+      <table id="recentShowsTable"></table>
     </section>
 
+    <a id="newsletter"></a>
     <section class="blocNewsletter">
       <h2 class="miniTitle animatableY">Stay updated</h2>
       <p class="miniPara animatableY"><br />Don't miss the next show!</p>
@@ -361,7 +338,6 @@
           referrerpolicy="strict-origin-when-cross-origin"
           allowfullscreen
         ></iframe>
-        <p class="hardLight animatableY">Past Performances</p>
       </div>
     </section>
 
@@ -537,6 +513,8 @@
       crossorigin
     ></script>
     <script defer src="js/mainFunctions.js"></script>
+    <script defer src="js/domUtils.js"></script>
+    <script defer src="js/displayShows.js"></script>
     <script defer src="js/submitContactForm.js"></script>
     <script src="js/submitNewsletterForm.js"></script>
   </body>
