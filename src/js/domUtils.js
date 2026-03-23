@@ -44,11 +44,7 @@ function removeElById(id) {
 }
 
 function isDevelopment() {
-  if (window) {
-    const href = window.location.href;
-    return href.includes("file:");
-  }
-  return false;
+  return process.env.NODE_ENV === "development";
 }
 
 export {

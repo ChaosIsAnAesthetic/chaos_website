@@ -1,5 +1,4 @@
 import { $ } from "jquery";
-import lazyload from "lazyload";
 import Rellax from "rellax";
 
 // Toggle class menu
@@ -189,13 +188,6 @@ $(function () {
       }
     }
   });
-});
-
-//Lazyload
-$(function () {
-  if (!window.location.pathname.match("mentions")) {
-    lazyload();
-  }
 });
 
 // resize reload

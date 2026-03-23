@@ -39,8 +39,7 @@
     "workbox-webpack-plugin": "^7.4.0"
   },
   "dependencies": {
-    "jquery": "^3.5.1",
-    "lazyload": "^2.0.0-rc.2",
+    "jquery": "^4.0.0",
     "rellax": "^1.12.1"
   }
 }
