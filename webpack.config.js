@@ -9,6 +9,7 @@ const isProduction = process.env.NODE_ENV === "production";
 /** @type {import("webpack").Configuration} */
 const config = {
   entry: "./src/index.js",
+  devtool: "inline-source-map",
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "bundle.js",
