@@ -2,3 +2,5 @@
 /data
 /scss
 /sass
+/node_modules
+/dist
