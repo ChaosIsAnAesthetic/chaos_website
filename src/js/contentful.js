@@ -1,6 +1,5 @@
 import * as contentful from "contentful";
 
-console.log(process.env.APP_CONTENTFUL_KEY);
 const client = contentful.createClient({
   space: process.env.APP_CONTENTFUL_SPACE_ID,
   accessToken: process.env.APP_CONTENTFUL_KEY,
@@ -12,9 +11,10 @@ async function getShows() {
   const response = await client
     .getEntries({
       content_type: "event",
+      order: "-fields.startDateTime",
+      limit: 20,
     })
     .catch((error) => {
-      console.log(error);
       throw error;
     });
   return mapEventsToShows(response.items);
