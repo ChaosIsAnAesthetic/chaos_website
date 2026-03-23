@@ -39,8 +39,8 @@ jobs:
         with:
           path: ./dist
         env:
-          APP_CONTENTFUL_KEY: ${{ secrets.APP_CONTENTFUL_KEY }}
-          APP_CONTENTFUL_SPACE_ID: ${{ secrets.APP_CONTENTFUL_SPACE_ID }}
+          APP_CONTENTFUL_KEY: ${{ secrets.CONFIG_CONTENTFUL_KEY }}
+          APP_CONTENTFUL_SPACE_ID: ${{ secrets.CONFIG_CONTENTFUL_SPACE_ID }}
 
   deploy:
     if: github.event_name != 'pull_request'
