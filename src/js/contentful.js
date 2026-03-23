@@ -1,10 +1,9 @@
 import * as contentful from "contentful";
 
 const client = contentful.createClient({
-  space: process.env.APP_CONTENTFUL_SPACE_ID,
-  accessToken: process.env.APP_CONTENTFUL_KEY,
-  environment:
-    process.env.NODE_ENV === "development" ? "development" : "master",
+  space: CONFIG_CONTENTFUL_SPACE_ID,
+  accessToken: CONFIG_CONTENTFUL_KEY,
+  environment: CONFIG_CONTENTFUL_ENVIRONMENT,
 });
 
 async function getShows() {

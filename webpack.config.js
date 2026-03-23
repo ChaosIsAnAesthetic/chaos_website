@@ -3,16 +3,14 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const WorkboxWebpackPlugin = require("workbox-webpack-plugin");
-
-const isProduction = process.env.NODE_ENV === "production";
+const webpack = require("webpack");
+const dotenv = require("dotenv");
+dotenv.config();
 
 /** @type {import("webpack").Configuration} */
 const config = {
   entry: "./src/index.js",
   devtool: "inline-source-map",
-  dotenv: {
-    prefix: "APP_",
-  },
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "bundle.js",
@@ -24,7 +22,6 @@ const config = {
   },
   plugins: [
     new HtmlWebpackPlugin({ template: "./src/index.html" }),
-
     // Add your plugins here
     // Learn more about plugins from https://webpack.js.org/configuration/plugins/
   ],
@@ -53,13 +50,21 @@ const config = {
   },
 };
 
-module.exports = () => {
-  if (isProduction) {
-    config.mode = "production";
+module.exports = (env, argv) => {
+  config.mode = env.production ? "production" : "development";
 
-    config.plugins.push(new WorkboxWebpackPlugin.GenerateSW());
-  } else {
-    config.mode = "development";
-  }
+  config.plugins.push(
+    new webpack.DefinePlugin({
+      CONFIG_CONTENTFUL_SPACE_ID: JSON.stringify(
+        process.env.CONFIG_CONTENTFUL_SPACE_ID,
+      ),
+      CONFIG_CONTENTFUL_KEY: JSON.stringify(process.env.CONFIG_CONTENTFUL_KEY),
+      CONFIG_CONTENTFUL_ENVIRONMENT: JSON.stringify(
+        env.production ? "master" : "development",
+      ),
+    }),
+  );
+  config.plugins.push(new WorkboxWebpackPlugin.GenerateSW());
+
   return config;
 };
