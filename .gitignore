@@ -4,3 +4,4 @@
 /sass
 /node_modules
 /dist
+.env

@@ -38,6 +38,9 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./dist
+        env:
+          APP_CONTENTFUL_KEY: ${{ secrets.APP_CONTENTFUL_KEY }}
+          APP_CONTENTFUL_SPACE_ID: ${{ secrets.APP_CONTENTFUL_SPACE_ID }}
 
   deploy:
     if: github.event_name != 'pull_request'
