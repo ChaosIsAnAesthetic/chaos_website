@@ -50,3 +50,12 @@ function isDevelopment() {
   }
   return false;
 }
+
+export {
+  createEl,
+  setTextContent,
+  getElementById,
+  addChild,
+  removeElById,
+  isDevelopment,
+};
