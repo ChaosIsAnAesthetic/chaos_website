@@ -43,15 +43,4 @@ function removeElById(id) {
   }
 }
 
-function isDevelopment() {
-  return process.env.NODE_ENV === "development";
-}
-
-export {
-  createEl,
-  setTextContent,
-  getElementById,
-  addChild,
-  removeElById,
-  isDevelopment,
-};
+export { createEl, setTextContent, getElementById, addChild, removeElById };

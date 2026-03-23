@@ -10,6 +10,9 @@ const isProduction = process.env.NODE_ENV === "production";
 const config = {
   entry: "./src/index.js",
   devtool: "inline-source-map",
+  dotenv: {
+    prefix: "APP_",
+  },
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "bundle.js",

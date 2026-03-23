@@ -4,35 +4,12 @@ import {
   getElementById,
   addChild,
   removeElById,
-  isDevelopment,
 } from "./domUtils.js";
-
-async function getShows() {
-  const strapiBaseUrl = isDevelopment()
-    ? "http://localhost:1337/api"
-    : "https://honest-positivity-52f756190d.strapiapp.com/api";
-
-  const eventsEndpoint = "/events?";
-  const url =
-    strapiBaseUrl +
-    eventsEndpoint +
-    new URLSearchParams({
-      populate: ["Address"],
-      sort: ["StartDateAndTime:desc"],
-      "pagination[pageSize]": 20,
-    }).toString();
-  const response = await fetch(url);
-  return response;
-}
+import { getShows } from "./contentful.js";
 
 async function displayShows() {
   try {
-    const response = await getShows();
-    if (!response.ok) {
-      throw response.error;
-    }
-    const result = await response.json();
-    const shows = result.data;
+    const shows = await getShows();
     displayNextShow(shows);
     displayShowRows(shows);
   } catch (error) {
@@ -62,7 +39,7 @@ function displayShowRows(shows) {
 
 function isUpcoming(show) {
   const now = new Date().getTime();
-  return new Date(show.StartDateAndTime).getTime() >= now;
+  return new Date(show.startDateTime).getTime() >= now;
 }
 
 function displayShowsError() {
@@ -109,7 +86,8 @@ function displayNextShow(shows) {
   }
 
   const nextShowPara = getElementById("nextShowPara");
-  const datetime = new Date(nextShow.StartDateAndTime);
+  const title = nextShow.title;
+  const datetime = new Date(nextShow.startDateTime);
   const date =
     datetime.toLocaleDateString("en-US", {
       month: "numeric",
@@ -119,15 +97,12 @@ function displayNextShow(shows) {
     hour: "numeric",
     minute: "2-digit",
   });
-  const locationName =
-    `${nextShow.Address ? " @" : ""} ` + nextShow.Address?.Name ?? "";
-  const cityState = ` ${nextShow.Address?.City ?? ""}, ${nextShow.Address?.State ?? ""}`;
+  const locationName = nextShow.locationName;
+  const city = nextShow.locationCity;
+  const state = nextShow.locationState;
 
-  addChild(nextShowPara, createEl("span", date));
-  addChild(nextShowPara, createEl("span", time));
-  addChild(nextShowPara, createEl("span", " | " + nextShow.Title));
-  addChild(nextShowPara, createEl("span", locationName));
-  addChild(nextShowPara, createEl("span", cityState));
+  const nextShowText = `${date} ${time} | ${title} @ ${locationName} ${city}, ${state}`;
+  addChild(nextShowPara, createEl("span", nextShowText));
 }
 
 function displayShowRow(show, tableEl, prepend = false) {
@@ -136,7 +111,7 @@ function displayShowRow(show, tableEl, prepend = false) {
   }
   const tableRow = createEl("tr");
   const dateEl = createEl("td");
-  const showDate = new Date(show.StartDateAndTime);
+  const showDate = new Date(show.startDateTime);
   setTextContent(
     dateEl,
     showDate.toLocaleDateString("en-US", {
@@ -147,19 +122,14 @@ function displayShowRow(show, tableEl, prepend = false) {
   );
   const showDetailsEl = createEl("td");
   const eventTitleEl = createEl("a");
-  setTextContent(
-    eventTitleEl,
-    `${show.Title}${nextShow.Address ?? " @"} ${show.Address?.Name ?? ""}`,
-  );
-  eventTitleEl.href = show.Link;
+  setTextContent(eventTitleEl, `${show.title} @ ${show.locationName}`);
+  eventTitleEl.href = show.link;
   eventTitleEl.className = "event-title ";
 
   const breakEl = createEl("br");
 
   const locationEL = createEl("span");
-  const location = show.Address
-    ? `${show.Address?.City ?? ""}, ${show.Address?.State ?? ""}`
-    : "";
+  const location = `${show.locationCity}, ${show.locationState}`;
   setTextContent(locationEL, location);
 
   const showTimeEl = createEl("td");
