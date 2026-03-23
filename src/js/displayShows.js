@@ -1,6 +1,11 @@
-document.addEventListener("DOMContentLoaded", () => {
-  displayShows();
-});
+import {
+  createEl,
+  setTextContent,
+  getElementById,
+  addChild,
+  removeElById,
+  isDevelopment,
+} from "./domUtils.js";
 
 async function getShows() {
   const strapiBaseUrl = isDevelopment()
@@ -198,3 +203,5 @@ function createInviteToSubscribeMsg() {
   addChild(spanEl, anchorEl);
   return spanEl;
 }
+
+export default displayShows;

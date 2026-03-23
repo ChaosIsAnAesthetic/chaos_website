@@ -1,3 +1,7 @@
+import { $ } from "jquery";
+import lazyload from "lazyload";
+import Rellax from "rellax";
+
 // Toggle class menu
 $(function () {
   $(".menu").on("click", function () {
@@ -17,6 +21,7 @@ $(function () {
     }
   });
 });
+
 $(function () {
   $(".ss-menu").on("click", function () {
     $(".menu").removeClass("active");
