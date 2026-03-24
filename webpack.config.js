@@ -60,7 +60,7 @@ module.exports = (env, argv) => {
       ),
       CONFIG_CONTENTFUL_KEY: JSON.stringify(process.env.CONFIG_CONTENTFUL_KEY),
       CONFIG_CONTENTFUL_ENVIRONMENT: JSON.stringify(
-        env.production ? "master" : "development",
+        process.env.CONFIG_CONTENTFUL_ENVIRONMENT,
       ),
     }),
   );
