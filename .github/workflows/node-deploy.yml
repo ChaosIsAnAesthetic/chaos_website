@@ -15,8 +15,8 @@ permissions:
   id-token: write
 
 env:
-  CONFIG_CONTENTFUL_KEY: ${{ secrets.CONFIG_CONTENTFUL_KEY }}
-  CONFIG_CONTENTFUL_SPACE_ID: ${{ secrets.CONFIG_CONTENTFUL_SPACE_ID }}
+  CONFIG_CONTENTFUL_KEY: ${{ vars.CONFIG_CONTENTFUL_KEY }}
+  CONFIG_CONTENTFUL_SPACE_ID: ${{ vars.CONFIG_CONTENTFUL_SPACE_ID }}
 
 jobs:
   build:
@@ -34,8 +34,6 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: "npm"
-      - name: "Say Space ID"
-        run: echo Using Contentful space ${{ env.CONFIG_CONTENTFUL_SPACE_ID }}
       - name: Clean Install Dependencies
         run: npm ci
       - name: Build with Webpack
