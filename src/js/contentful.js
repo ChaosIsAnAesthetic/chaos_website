@@ -6,6 +6,28 @@ const client = contentful.createClient({
   environment: CONFIG_CONTENTFUL_ENVIRONMENT,
 });
 
+async function getBand() {
+  const response = await client.getEntry(CONFIG_CMS_BAND_ID).catch((error) => {
+    throw error;
+  });
+  return mapBand(response);
+}
+
+function mapBand(band) {
+  return {
+    name: band.fields.bandName ?? "",
+    quote: band.fields.quote ?? "",
+    quoteSource: band.fields.quoteSource ?? "",
+    bio: band.fields.bio ?? "",
+    heroImageLink: getassetFieldUrl(band.fields.heroImage),
+    logoLink: getassetFieldUrl(band.fields.logo),
+  };
+}
+
+function getassetFieldUrl(assetField) {
+  return assetField.fields.file.url;
+}
+
 async function getShows() {
   const response = await client
     .getEntries({
@@ -30,4 +52,4 @@ function mapEventsToShows(events) {
     };
   });
 }
-export { getShows };
+export { getShows, getBand };

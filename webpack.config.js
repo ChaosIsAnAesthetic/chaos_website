@@ -62,6 +62,7 @@ module.exports = (env, argv) => {
       CONFIG_CONTENTFUL_ENVIRONMENT: JSON.stringify(
         process.env.CONFIG_CONTENTFUL_ENVIRONMENT,
       ),
+      CONFIG_CMS_BAND_ID: JSON.stringify(process.env.CONFIG_CMS_BAND_ID),
     }),
   );
   config.plugins.push(new WorkboxWebpackPlugin.GenerateSW());
