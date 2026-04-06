@@ -25,7 +25,7 @@ function mapBand(band) {
 }
 
 function getassetFieldUrl(assetField) {
-  return assetField.fields.file.url;
+  return "https:" + assetField.fields.file.url;
 }
 
 async function getShows() {
