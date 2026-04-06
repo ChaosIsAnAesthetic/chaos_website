@@ -22,6 +22,36 @@ function setTextContent(el, textContent) {
   el.textContent = textContent;
 }
 
+function setSrc(el, src) {
+  if (!el) {
+    return;
+  }
+  if (typeof el === "string") {
+    const element = getElementById(el);
+    if (element) {
+      element.src = src;
+    }
+    return;
+  }
+
+  el.src = src;
+}
+
+function setHref(el, href) {
+  if (!el) {
+    return;
+  }
+  if (typeof el === "string") {
+    const element = getElementById(el);
+    if (element) {
+      element.href = href;
+    }
+    return;
+  }
+
+  el.href = href;
+}
+
 function getElementById(id = "") {
   return document.getElementById(id);
 }
@@ -43,4 +73,12 @@ function removeElById(id) {
   }
 }
 
-export { createEl, setTextContent, getElementById, addChild, removeElById };
+export {
+  createEl,
+  setTextContent,
+  getElementById,
+  addChild,
+  removeElById,
+  setSrc,
+  setHref,
+};

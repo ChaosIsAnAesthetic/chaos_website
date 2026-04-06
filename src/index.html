@@ -24,7 +24,7 @@
     />
 
     <!-- Flaticon -->
-    <link rel="icon" type="image/png" href="./img/band_logo.png" />
+    <link id="flatIcon" rel="icon" type="image/png" />
 
     <!-- BALISE CANONIQUE -->
     <link rel="canonical" href="" />
@@ -32,7 +32,7 @@
   <body>
     <noscript> You must activate javascript to view this website ! </noscript>
     <a id="top"></a>
-    <section class="mainView">
+    <section id="mainView" class="mainView">
       <!-- Bloc share -->
       <div class="shareBtn">
         <div class="elementBtn facebook">
@@ -120,16 +120,9 @@
         Chaos is an Aesthetic
       </h2>
       <div class="separator animatableOpacity"></div>
-      <p class="hardLight animatableY" lang="en">
-        "Wicked, wicked woman, sink your teeth right in my skin."
-      </p>
-      <p class="quote-credit">- Wicked Woman, Chaos is an Aesthetic</p>
-      <p class="animatableY">
-        Chaos is an Aesthetic is an independent Phoenix area alt folk band.
-        We're a ragtag group of musicians making music while we make ends meet.
-        We offer an alt folk, almost southern gothic sound that surprises and
-        delights audiences everywhere.
-      </p>
+      <p id="bandQuote" class="hardLight animatableY" lang="en"></p>
+      <p id="quoteCredit" class="quote-credit"></p>
+      <p id="bandBio" class="animatableY"></p>
       <div class="imgContent">
         <div class="member-container">
           <div class="card animatableY">
@@ -379,7 +372,7 @@
     <footer>
       <div class="footerBaner">
         <p class="bolder">estd</p>
-        <img class="bandBanner" src="./img/band_logo.png" alt="" />
+        <img id="bandLogo" class="bandBanner" alt="" />
         <p class="bolder">2020</p>
       </div>
       <p class="bolder">Chaos is an Aesthetic</p>
