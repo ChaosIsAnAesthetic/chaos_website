@@ -14,6 +14,7 @@ async function displayBandInfo() {
       mainViewEl.style.backgroundImage = `url("${band.heroImageLink}")`;
     }
   } catch (error) {
+    console.log(error);
     console.log("Band info display error");
   }
 }
